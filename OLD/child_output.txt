@@ -1,0 +1,82 @@
+									*****ORPHAN STATE*****
+
+
+student@student-OptiPlex-390:~$ gcc child.c
+student@student-OptiPlex-390:~$ ./a.out
+
+Enter the number of Numbers to be sorted:5
+
+Enter List of Numbers:
+8
+4
+5
+7
+0
+
+I am Parent Process,my pid is 13882 
+
+I am Parent's Parent Process,my pid is 2173 
+
+List of Numbers in Descending Order:
+8
+7
+5
+4
+0
+student@student-OptiPlex-390:~$ 
+4 S     0     1     0  0  80   0 -  8464 poll_s ?        00:00:00 init
+4 S  1000  1490  1120  0  80   0 - 10083 poll_s ?        00:00:00 init
+
+I am Child Process,my pid is 13883 
+
+I am Parent Process,my pid is 1490 
+
+List of Numbers in Ascending Order:
+0
+4
+5
+7
+8
+
+
+									*****ZOMBIE STATE*****
+									
+									
+student@student-OptiPlex-390:~$ gcc child.c
+student@student-OptiPlex-390:~$ ./a.out
+
+Enter the number of Numbers to be sorted:5
+
+Enter List of Numbers:
+8
+4
+5
+7
+0
+
+I am Child Process,my pid is 13917 
+
+I am Parent Process,my pid is 13916 
+
+List of Numbers in Ascending Order:
+0
+4
+5
+7
+8
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+1 Z  1000 13917 13916  0  80   0 -     0 exit   pts/0    00:00:00 a.out <defunct>
+
+PID of the terminated child process is 13917
+
+I am Parent Process,my pid is 13916 
+
+I am Parent's Parent Process,my pid is 2173 
+
+List of Numbers in Descending Order:
+8
+7
+5
+4
+0
+student@student-OptiPlex-390:~$ 
